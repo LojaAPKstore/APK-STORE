@@ -64,6 +64,7 @@
       {name:'Produtividade',icon:'✎'},
       {name:'Finanças',icon:'◈'},
       {name:'Fotografia',icon:'▣'},
+      {name:'Música',icon:'♫'},
       {name:'Educação',icon:'▤'},
       {name:'Bem-estar',icon:'♡'},
       {name:'Jogos',icon:'◇'}
@@ -103,6 +104,18 @@
         desc:'Calculadora para Android com visual inspirado em pixel art. Baixe o APK e use no seu celular.',
         keywords:'calculadora, cálculo, matemática, pixel, contas, operações, android',
         apk:'https://raw.githubusercontent.com/LojaAPKstore/Calculadora-Pixel/refs/heads/main/Calculadora%20PIXEL_1.apk'
+      },
+      {
+        name:'Play Sonora',
+        dev:'Lucas-gts',
+        category:'Música',
+        icon:'🎵',
+        color:'linear-gradient(145deg,#d8f6ff,#8bd9e8)',
+        size:'5,9 MB',
+        price:'',
+        desc:'Reproduza músicas armazenadas no seu dispositivo, monte uma fila e organize suas faixas em playlists. O Play Sonora aceita MP3, WAV, M4A, OGG e outros formatos; seus arquivos originais não são alterados.',
+        keywords:'música, áudio, player local, MP3, WAV, M4A, OGG, fila, playlists, android',
+        apk:'https://raw.githubusercontent.com/Lucas-gts/APK-play-sonora/refs/heads/main/play%20sonora.apk'
       }
     ];
 
@@ -310,10 +323,11 @@
         showDownloadSuccess(app);
         window.setTimeout(()=>URL.revokeObjectURL(downloadUrl),60000);
       }catch(error){
-        status.textContent='Falha no download. Verifique a conexão e tente novamente.';
+        status.textContent='O download automático falhou. Toque no botão para abrir o APK diretamente.';
         percentText.textContent='';
         button.disabled=false;
-        button.textContent='Tentar novamente';
+        button.textContent='Baixar pelo link direto';
+        button.onclick=()=>window.location.assign(app.apk);
       }
     }
 
